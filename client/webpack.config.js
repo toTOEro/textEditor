@@ -17,11 +17,13 @@ module.exports = () => {
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
+      clean: true,
+      publicPath: '',
     },
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'JATE',
+        title: 'jate',
       }),
 
       new MiniCssExtractPlugin(),
@@ -35,6 +37,10 @@ module.exports = () => {
         short_name: 'JATE',
         description: 'A Progressive Web App for editing text!',
         fingerprints: false,
+        filename: './manifest.json',
+        // start_url: './',
+        crossorigin: null,
+        includeDirectory: true,
         icons: [
           {
             src: path.resolve('./src/images/logo.png'),
@@ -47,7 +53,7 @@ module.exports = () => {
 
       new InjectManifest({
         swSrc: './src-sw.js',
-        swDest: 'service-worker.js',
+        swDest: 'src-sw.js',
       }),
     ],
 
@@ -60,7 +66,6 @@ module.exports = () => {
         {
           test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
           type: 'asset/resource',
-          // type: 'javascript/auto'
 
         },
         {
