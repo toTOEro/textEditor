@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
-const { InjectManifest, GenerateSW } = require('workbox-webpack-plugin');
+const { InjectManifest } = require('workbox-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 
@@ -32,7 +32,21 @@ module.exports = () => {
         swDest: 'service-worker.js',
       }),
 
-      new WebpackPwaManifest(),
+      // Configuration information can be found at:
+      // https://www.npmjs.com/package/webpack-pwa-manifest 
+      new WebpackPwaManifest({
+        name: 'Just Another Text Editor',
+        short_name: 'JATE',
+        description: 'A Progressive Web App for editing text!',
+        icons: [
+          {
+            src: path.resolve('./src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
+            destination: path.join('assets/icons')
+
+          }
+        ]
+      }),
 
     ],
 
