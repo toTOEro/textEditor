@@ -4,6 +4,7 @@ const path = require('path');
 const { InjectManifest, GenerateSW } = require('workbox-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+
 // TODO: Add and configure workbox plugins for a service worker and manifest file.
 
 module.exports = () => {
@@ -20,10 +21,11 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'HtmlWebpackPlugin',
+        title: 'JATE',
       }),
 
       new MiniCssExtractPlugin(),
+
 
       new InjectManifest({
         swSrc: './src-sw.js',
@@ -31,9 +33,6 @@ module.exports = () => {
       }),
 
       new WebpackPwaManifest(),
-
-      new GenerateSW(),
-
 
     ],
 
@@ -44,12 +43,20 @@ module.exports = () => {
           use: [MiniCssExtractPlugin.loader, 'css-loader']
         },
         {
+          test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
+          // type: 'asset/resource',
+          type: 'javascript/auto'
+
+        },
+        {
           test: /\.m?js$/,
           exclude: /(node_modules|bower_components)/,
           use: {
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env'],
+              plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime'],
+
             },
           },
         },
