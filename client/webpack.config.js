@@ -27,10 +27,6 @@ module.exports = () => {
       new MiniCssExtractPlugin(),
 
 
-      new InjectManifest({
-        swSrc: './src-sw.js',
-        swDest: 'service-worker.js',
-      }),
 
       // Configuration information can be found at:
       // https://www.npmjs.com/package/webpack-pwa-manifest 
@@ -38,6 +34,7 @@ module.exports = () => {
         name: 'Just Another Text Editor',
         short_name: 'JATE',
         description: 'A Progressive Web App for editing text!',
+        fingerprints: false,
         icons: [
           {
             src: path.resolve('./src/images/logo.png'),
@@ -48,6 +45,10 @@ module.exports = () => {
         ]
       }),
 
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'service-worker.js',
+      }),
     ],
 
     module: {
@@ -58,8 +59,8 @@ module.exports = () => {
         },
         {
           test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
-          // type: 'asset/resource',
-          type: 'javascript/auto'
+          type: 'asset/resource',
+          // type: 'javascript/auto'
 
         },
         {
