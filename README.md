@@ -1,19 +1,21 @@
 # Text Editor Starter Code
 
   
-  ## License
+## License
 
   [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
   
-  ## Example Video
+## Deployed URL
   
-  https://drive.google.com/file/d/14IHwXUUxmcvZr43nvPQ6svi1sK9hD2Ns/view
+  https://blooming-spire-77928.herokuapp.com/
 
-  ## Description
+## Description
 
-  This profile generator generates a webpage to display my team's basic information in order to have quick access to emails and GitHub profiles. This program uses inquirer to query the user in the terminal for information regarding the team. Afterwards, that information is inserted directly into HTML code to eventually be output into an HTML file that presents the team.
+  This is yet another text editor that can be used both online and offline. It also has Progressive Web App (PWA) functionality that allows the user to save the app for use.
 
-  ## Table of Contents 
+  ![An image of Just Another Text Editor showing a header logo](./readmeAssets/webapp.JPG)
+
+## Table of Contents 
 
   
   - [Installation](#installation)
@@ -24,29 +26,20 @@
   - [Questions](#questions)
   
 
-  ## Installation
+## Installation
 
-  Download off of GitHub, ensure all dependencies are installed using npm i.
-
-    Dependencies:
-
-    - inquirer@8.2.4
-    - inquirer-loop
-    - jest
+Download off of GitHub, ensure all dependencies are installed using npm run install, then npm run start.
 
 
 ## Usage
 
-Within directory, run node index.js
-  
+This app is accessed through http://localhost:3000 when run locally.   
 
 ## Credits
 
 https://github.com/toTOEro 
   
-## Tests
 
-Run npm test 
 
 ## Questions
   
