@@ -4,11 +4,10 @@ const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-process.env.NODE_ENV === "production" ? mode= 'production' : mode = 'development';
 
 module.exports = () => {
   return {
-    mode: mode,
+    mode: 'development',
     entry: {
       main: './src/js/index.js',
       install: './src/js/install.js'
