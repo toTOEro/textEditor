@@ -4,12 +4,11 @@ const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-
-// TODO: Add and configure workbox plugins for a service worker and manifest file.
+process.env.NODE_ENV === "production" ? mode= 'production' : mode = 'development';
 
 module.exports = () => {
   return {
-    mode: 'development',
+    mode: mode,
     entry: {
       main: './src/js/index.js',
       install: './src/js/install.js'
