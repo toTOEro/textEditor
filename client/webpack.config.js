@@ -23,6 +23,7 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
+        favicon: 'favicon.ico',
         title: 'jate',
       }),
 
@@ -38,7 +39,6 @@ module.exports = () => {
         description: 'A Progressive Web App for editing text!',
         fingerprints: false,
         filename: './manifest.json',
-        // start_url: './',
         crossorigin: null,
         includeDirectory: true,
         icons: [
@@ -80,6 +80,7 @@ module.exports = () => {
             },
           },
         },
+
       ],
     },
   };

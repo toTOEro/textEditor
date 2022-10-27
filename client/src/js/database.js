@@ -18,7 +18,7 @@ export const putDb = async (content) => {
   const txn = db.transaction('jate', 'readwrite');
   const objStore = txn.objectStore('jate');
 
-  const request = objStore.put({ jate: content });
+  const request = objStore.put({ id: 1, value: content });
 
   const result = await request;
   console.log(`Result: ${result}`);
@@ -33,12 +33,11 @@ export const getDb = async () => {
   const txn = db.transaction('jate', 'readonly');
   const objStore = txn.objectStore('jate');
 
-  const request = objStore.getAll();
+  const request = objStore.get(1);
 
   const result = await request;
-  console.log(`Result: ${result}`);
 
-  return result;
+  return result?.value;
 
 
 }

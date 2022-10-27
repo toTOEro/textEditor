@@ -11,6 +11,7 @@ export default class {
       throw new Error('CodeMirror is not loaded');
     }
 
+
     this.editor = CodeMirror(document.querySelector('#main'), {
       value: '',
       mode: 'javascript',
@@ -27,6 +28,7 @@ export default class {
     getDb().then((data) => {
       console.info('Loaded data from IndexedDB, injecting into editor');
       this.editor.setValue(data || localData || header);
+      
     });
 
     this.editor.on('change', () => {
